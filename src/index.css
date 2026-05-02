@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* ── Root Variables ── */
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --primary-light: #818cf8;
+  --accent: #10b981;
+  --accent-dark: #059669;
+  --bg-dark: #0f172a;
+  --bg-card: #1e293b;
+  --bg-light: #f8fafc;
+  --text-light: #f1f5f9;
+  --text-dark: #0f172a;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+  --gradient-2: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px; /* For horizontal scroll */
+}
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 20px;
+  border: 2px solid #030712;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* ── Custom Scrollbar for Home/Chat sections ── */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #6366f1, #a855f7);
+  border-radius: 20px;
+  border: none;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to right, #4f46e5, #9333ea);
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+/* ── Smooth page transitions ── */
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* ── Skeleton loader animation ── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* ── Floating animation ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ── Pulse glow ── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(99, 102, 241, 0); }
+}
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
